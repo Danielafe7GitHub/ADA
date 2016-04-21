@@ -57,10 +57,10 @@ int Heap_Extract_Max(int *A,int size)
 {
     if(size<1)
         cout<<"Heap Underflow"<<endl;
-    int max=A[1];
-    A[1]=A[size];
+    int max=A[0];
+    A[0]=A[size];
     size--;
-    max_heapify(A,1,size);
+    max_heapify(A,0,size);
     return max;
 }
 
