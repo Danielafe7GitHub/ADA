@@ -26,27 +26,7 @@ void max_heapify(int* a,int i,int tam_heap)
     }
 }
 
-void build_max_heap(int* a,int tam)
-{
-    for(int i=(tam/2);i>=0;i--)
-    {
-        max_heapify(a,i,tam);
-    }
-}
 
-void heap_sort(int *a,int tam)
-{
-    int heap_size=tam;
-    build_max_heap(a,tam);
-    for(int i=tam-1;i>=1;i--)
-    {
-        int aux=a[0];
-        a[0]=a[i];
-        a[i]=aux;
-        heap_size--;
-        max_heapify(a,0,heap_size);
-    }
-}
 
 int Heap_Maximun(int*A)
 {
@@ -58,8 +38,8 @@ int Heap_Extract_Max(int *A,int size)
     if(size<1)
         cout<<"Heap Underflow"<<endl;
     int max=A[0];
-    A[0]=A[size];
-    size--;
+    A[0]=A[size-1];
+    size=size-1;
     max_heapify(A,0,size);
     return max;
 }
@@ -91,14 +71,12 @@ int main()
    int a[]={15,13,9,5,12,8,7,4,0,6,2,1};
    int retorno=Heap_Extract_Max(a,12);
    cout<<"Extract is:"<<retorno<<endl;
-   Heap_Incrase_Key(a,2,10);
-   Heap_Incrase_Key(a,2,14);
-   int max=Heap_Maximun(a);
-   cout<<"Maximium is:"<<max<<endl;
-   for(int i=0;i<12;i++)
+
+   for(int i=0;i<11;i++)
    {
        cout<<a[i]<<", ";
    }
+
    return 0;
 
 }
