@@ -49,7 +49,9 @@ void Heap_Incrase_Key(int*A,int i,int key)
     if(key<A[i])
         cout<<"La nueve clave es menor que la actual"<<endl;
     A[i]=key;
-    while(i>1 && A[Parent(i)]<A[i])
+    /*i>0 asi aseguramos que no es sla raiz*/
+    /*si fuese mayoy es como hacer heapfy va cambiando de padres*/
+    while(i>0 && A[Parent(i)]<A[i])
     {
         int aux=A[i];
         A[i]=A[Parent(i)];
@@ -72,6 +74,12 @@ int main()
    int retorno=Heap_Extract_Max(a,12);
    cout<<"Extract is:"<<retorno<<endl;
 
+   for(int i=0;i<11;i++)
+   {
+       cout<<a[i]<<", ";
+   }
+   cout<<endl;
+   Heap_Incrase_Key(a,3,10);
    for(int i=0;i<11;i++)
    {
        cout<<a[i]<<", ";
