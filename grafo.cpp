@@ -32,7 +32,7 @@ int main()
     {
         for(int j=0;j<tam;j++)
         {
-            //cout<<A[i][j]<<" ";
+            
             if(A[i][j]==1)
             {
                 cout<<"Nodo "<<i+1<<" ------>  "<<j+1;
